@@ -15,9 +15,6 @@ struct SetDetails: View {
       ScrollView {
         HStack {
           VStack(alignment: .leading) {
-//            Text(setDetails.name)
-//              .font(.title)
-            
             Text("Number of times studied: \(setDetails.numberOfTimesStudied)")
           }
           .padding([.leading], 20)
@@ -25,26 +22,15 @@ struct SetDetails: View {
         }
         
         ForEach($setDetails.flashcards) { $flashcard in
-          VStack(alignment: .leading) {
-            Text(flashcard.term)
-            Divider()
-            Text(flashcard.definition)
-          }
-          .padding(16)
-          .overlay {
-            RoundedRectangle(cornerRadius: 12)
-              .stroke(Color.gray, lineWidth: 2)
-          }
-          .background(Color.white)
-          .cornerRadius(12)
-          .padding([.horizontal], 20)
-          .padding([.vertical], 6)
+          FlashcardView(term: flashcard.term, definition: flashcard.definition)
         }
         Spacer()
       }
       VStack {
-        Button("Begin Studying") {
-          
+        NavigationLink {
+          Study(flashcards: setDetails.flashcards)
+        } label: {
+          Text("Begin Studying")
         }
         .buttonStyle(.borderedProminent)
         .buttonBorderShape(.capsule)
@@ -65,5 +51,27 @@ struct SetDetails_Previews: PreviewProvider {
       SetDetails(setDetails: $flashcards)
         .background(Color(hex: 0xf0f0f6))
     }
+  }
+}
+
+struct FlashcardView: View {
+  let term: String
+  let definition: String
+  
+  var body: some View {
+    VStack(alignment: .leading) {
+      Text(term)
+      Divider()
+      Text(definition)
+    }
+    .padding(16)
+    .overlay {
+      RoundedRectangle(cornerRadius: 12)
+        .stroke(Color.gray, lineWidth: 2)
+    }
+    .background(Color.white)
+    .cornerRadius(12)
+    .padding([.horizontal], 20)
+    .padding([.vertical], 6)
   }
 }
