@@ -22,6 +22,8 @@
 		52EFC93229F99D480070C8FF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EFC93129F99D480070C8FF /* Color.swift */; };
 		52EFC93729F9CB180070C8FF /* FlashcardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230547B29F7443A00A79379 /* FlashcardModel.swift */; };
 		52EFC93B29F9D6E70070C8FF /* Study.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EFC93A29F9D6E70070C8FF /* Study.swift */; };
+		52EFC93E29FA1C440070C8FF /* FlashcardSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EFC93D29FA1C440070C8FF /* FlashcardSampleData.swift */; };
+		52EFC94029FA21BF0070C8FF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EFC93F29FA21BF0070C8FF /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		5230547D29F74FAD00A79379 /* SetDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDetails.swift; sourceTree = "<group>"; };
 		52EFC93129F99D480070C8FF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		52EFC93A29F9D6E70070C8FF /* Study.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Study.swift; sourceTree = "<group>"; };
+		52EFC93D29FA1C440070C8FF /* FlashcardSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardSampleData.swift; sourceTree = "<group>"; };
+		52EFC93F29FA21BF0070C8FF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 				5230547829F743F700A79379 /* SetsList.swift */,
 				5230547D29F74FAD00A79379 /* SetDetails.swift */,
 				52EFC93A29F9D6E70070C8FF /* Study.swift */,
+				52EFC93F29FA21BF0070C8FF /* CardView.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 		5230547A29F7440B00A79379 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				52EFC93C29FA1C320070C8FF /* SampleData */,
 				5230547B29F7443A00A79379 /* FlashcardModel.swift */,
 			);
 			path = Models;
@@ -171,6 +177,14 @@
 				52EFC93129F99D480070C8FF /* Color.swift */,
 			);
 			path = Extenions;
+			sourceTree = "<group>";
+		};
+		52EFC93C29FA1C320070C8FF /* SampleData */ = {
+			isa = PBXGroup;
+			children = (
+				52EFC93D29FA1C440070C8FF /* FlashcardSampleData.swift */,
+			);
+			path = SampleData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,10 +321,12 @@
 				5230547E29F74FAD00A79379 /* SetDetails.swift in Sources */,
 				5230545229F7370900A79379 /* Persistence.swift in Sources */,
 				5230545529F7370900A79379 /* FlashcardSets.xcdatamodeld in Sources */,
+				52EFC93E29FA1C440070C8FF /* FlashcardSampleData.swift in Sources */,
 				5230544B29F7370700A79379 /* ContentView.swift in Sources */,
 				5230544929F7370700A79379 /* FlashcardSetsApp.swift in Sources */,
 				52EFC93229F99D480070C8FF /* Color.swift in Sources */,
 				5230547C29F7443A00A79379 /* FlashcardModel.swift in Sources */,
+				52EFC94029FA21BF0070C8FF /* CardView.swift in Sources */,
 				5230547929F743F700A79379 /* SetsList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

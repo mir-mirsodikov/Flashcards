@@ -56,7 +56,7 @@ struct SetsList: View {
 struct SetsList_Previews: PreviewProvider {
   static var previews: some View {
     NavigationStack {
-      SetsList(sets: testFlashcardSetData)
+      SetsList(sets: sampleFlashcardSets)
     }
   }
 }

@@ -27,26 +27,6 @@ struct Study: View {
     _progression = State(initialValue: 1.0 / Double(flashcards.count))
   }
   
-  func flipCard() {
-    isFlipped = !isFlipped
-    if isFlipped {
-      withAnimation(.linear(duration: durationAndDelay)) {
-        backDegree = 90
-      }
-      withAnimation(.linear(duration: durationAndDelay).delay(durationAndDelay)) {
-        frontDegree = 0
-      }
-    } else {
-      withAnimation(.linear(duration: durationAndDelay)) {
-        frontDegree = -90
-      }
-      withAnimation(.linear(duration: durationAndDelay).delay(durationAndDelay)) {
-        backDegree = 0
-      }
-    }
-    
-  }
-  
   var body: some View {
     if !finished {
       VStack {
@@ -55,30 +35,21 @@ struct Study: View {
         }
         .padding()
         Spacer()
-        ZStack {
-          CardFront(width: width, height: height, text: flashcards[currentIndex].term, degree: $frontDegree)
-          CardBack(width: width, height: height, text: flashcards[currentIndex].definition, degree: $backDegree)
-        }
-        .onTapGesture {
-          flipCard()
-        }
-        .transition(.slide)
+        
+        CardView(card: flashcards[currentIndex], currentIndex: currentIndex)
         
         Spacer()
         Button {
           if currentIndex + 1 != flashcards.count {
             withAnimation(.linear) {
-              if isFlipped {
-                flipCard()
-              }
               currentIndex += 1
             }
           } else {
             finished.toggle()
           }
-            withAnimation(.linear) {
-              progression = Double(currentIndex + 1) / Double(flashcards.count)
-            }
+          withAnimation(.linear) {
+            progression = Double(currentIndex + 1) / Double(flashcards.count)
+          }
         } label: {
           Text("Next")
             .frame(width: 200)
@@ -104,45 +75,8 @@ struct Study: View {
   }
 }
 
-struct CardFront: View {
-  let width: CGFloat
-  let height: CGFloat
-  let text: String
-  @Binding var degree: Double
-  
-  var body: some View {
-    ZStack {
-      RoundedRectangle(cornerRadius: 20)
-        .fill(.white)
-        .frame(width: width, height: height)
-        .shadow(color: .gray, radius: 2, x: 0, y: 0)
-      
-      Text(text)
-    }
-    .rotation3DEffect(Angle(degrees: degree), axis: (x: 1, y: 0, z: 0))
-  }
-}
-
-struct CardBack: View {
-  let width: CGFloat
-  let height: CGFloat
-  let text: String
-  @Binding var degree: Double
-  
-  var body: some View {
-    ZStack {
-      RoundedRectangle(cornerRadius: 20)
-        .stroke(.blue.opacity(0.7), lineWidth: 2)
-        .frame(width: width, height: height)
-      
-      Text(text)
-    }
-    .rotation3DEffect(Angle(degrees: degree), axis: (x: 1, y: 0, z: 0))
-  }
-}
-
 struct Study_Previews: PreviewProvider {
   static var previews: some View {
-    Study(flashcards: testFlashcardSetData[0].flashcards)
+    Study(flashcards: sampleFlashcardSets[0].flashcards)
   }
 }

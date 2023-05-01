@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A model to represent a singular flashcard entity
 struct Flashcard: Identifiable {
   let id = UUID()
   var term: String
@@ -19,6 +20,10 @@ struct FlashcardSet: Identifiable {
   var flashcards: [Flashcard]
   var numberOfTimesStudied: Int
   
+  /// Create a new flashcard set
+  /// - Parameters:
+  ///   - name: Name of the set
+  ///   - flashcards: Flashcards within the set
   init(name: String, flashcards: [Flashcard]) {
     self.name = name
     self.flashcards = flashcards
@@ -26,26 +31,3 @@ struct FlashcardSet: Identifiable {
   }
 }
 
-let testFlashcardSetData: [FlashcardSet] = [
-  FlashcardSet(
-    name: "Leaders",
-    flashcards: [
-      Flashcard(term: "Adolf Hitler", definition: "Führer of Germany"),
-      Flashcard(term: "Benito Musolini", definition: "Leader of Italy")
-    ]
-  ),
-  FlashcardSet(
-    name: "German",
-    flashcards: [
-      Flashcard(term: "Groß", definition: "Tall/Large"),
-      Flashcard(term: "Über", definition: "Over")
-    ]
-  ),
-  FlashcardSet(
-    name: "Countries and Capitols",
-    flashcards: [
-      Flashcard(term: "Russia", definition: "Moscow"),
-      Flashcard(term: "Ukraine", definition: "Kiev")
-    ]
-  ),
-]

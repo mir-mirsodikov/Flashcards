@@ -44,7 +44,7 @@ struct SetDetails: View {
 }
 
 struct SetDetails_Previews: PreviewProvider {
-  @State static var flashcards = testFlashcardSetData[0]
+  @State static var flashcards = sampleFlashcardSets[0]
   
   static var previews: some View {
     NavigationStack {

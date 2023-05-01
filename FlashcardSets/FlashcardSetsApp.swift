@@ -14,7 +14,7 @@ struct FlashcardSetsApp: App {
   var body: some Scene {
     WindowGroup {
       NavigationStack {
-        SetsList(sets: testFlashcardSetData)
+        SetsList(sets: sampleFlashcardSets)
           .background(Color(hex: 0xf0f0f6))
           .environment(\.managedObjectContext, persistenceController.container.viewContext)
       }
